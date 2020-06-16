@@ -1,2 +1,2 @@
 # react-redux-implement
-React JW With Redux
+React JS With Redux
