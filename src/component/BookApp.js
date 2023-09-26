@@ -22,16 +22,23 @@ const BookApp = () => {
             <button onClick={addNewBook}>
                 Add
             </button>
-            {books.map(book =>
-                <div key={book.id}>
-                    <p>{book.title}</p>
-                    <p>{book.author}</p>
-                    <p>{book.price}</p>
-                    <button onClick={() => dispatch(deleteBook(book.id))}>
-                        Delete
-                    </button>
-                </div>
-            )}
+            <table>
+                {books.map((val, key) => {
+                    return (
+                        <tr key={key}>
+                            <td>{val.id}</td>
+                            <td>{val.title}</td>
+                            <td>{val.author}</td>
+                            <td>{val.price}</td>
+                            <td>
+                                <button onClick={() => dispatch(deleteBook(val.id))}>
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    )
+                })}
+            </table>
         </div>
     )
 }
