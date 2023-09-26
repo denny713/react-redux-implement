@@ -1,9 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addBook, deleteBook } from "../store/action/BookAction";
 
-const BookApp = ({ books, addBook, deleteBook }) => {
+const BookApp = () => {
 
+    const books = useSelector(state => state.bookReducer.bookList);
+    const dispatch = useDispatch();
     const addNewBook = () => {
         const book = {
             id: 4,
@@ -11,7 +13,7 @@ const BookApp = ({ books, addBook, deleteBook }) => {
             author: "Author Four",
             price: 2500
         }
-        addBook(book)
+        dispatch(addBook(book))
     }
 
     return (
@@ -32,4 +34,4 @@ const mapStateToProps = state => {
     books: state.bookReducer.bookList
 }
 
-export default connect(mapStateToProps, { addBook, deleteBook })(BookApp);
+export default BookApp;
