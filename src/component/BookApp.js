@@ -21,7 +21,7 @@ const BookApp = () => {
             <h1>Book App</h1>
             <button onClick={addNewBook}>
                 Add
-                </button>
+            </button>
             {books.map(book =>
                 <div key={book.id}>
                     <p>{book.title}</p>
