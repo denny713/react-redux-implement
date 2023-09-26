@@ -19,19 +19,21 @@ const BookApp = () => {
     return (
         <div>
             <h1>Book App</h1>
+            <button onClick={addNewBook}>
+                Add
+                </button>
             {books.map(book =>
                 <div key={book.id}>
                     <p>{book.title}</p>
                     <p>{book.author}</p>
                     <p>{book.price}</p>
+                    <button onClick={() => dispatch(deleteBook(book.id))}>
+                        Delete
+                    </button>
                 </div>
             )}
         </div>
     )
-}
-
-const mapStateToProps = state => {
-    books: state.bookReducer.bookList
 }
 
 export default BookApp;

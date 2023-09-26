@@ -21,7 +21,7 @@ const initState = {
     ]
 }
 
-const bookReducer = (state = initialState, action) => {
+const bookReducer = (state = initState, action) => {
     const { type, payload } = action;
     switch (type) {
         case "ADD":
